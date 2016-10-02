@@ -182,3 +182,63 @@ Route::put('/staff/{id}', 'StaffController@update');
 //delete
 Route::delete('/staff/{id}', 'StaffController@destroy');
 /************************************************/
+/******************** user-settings ********************/
+// get all
+Route::get('/user-settings', 'UserSettingsController@index');
+//get by id
+Route::get('/user-settings/{id}', 'UserSettingsController@show');
+//create
+Route::post('/user-settings', 'UserSettingsController@store');
+//update
+Route::put('/user-settings/{id}', 'UserSettingsController@update');
+//delete
+Route::delete('/user-settings/{id}', 'UserSettingsController@destroy');
+/************************************************/
+/******************** favorites ********************/
+// get all
+Route::get('/favorites', 'FavoriteController@index');
+//get by id
+Route::get('/favorites/{id}', 'FavoriteController@show');
+//create
+Route::post('/favorites', 'FavoriteController@store');
+//update
+Route::put('/favorites/{id}', 'FavoriteController@update');
+//delete
+Route::delete('/favorites/{id}', 'FavoriteController@destroy');
+/************************************************/
+/******************** powerups ********************/
+// get all
+Route::get('/powerups', 'PowerupController@index');
+//get by id
+Route::get('/powerups/{id}', 'PowerupController@show');
+//create
+Route::post('/powerups', 'PowerupController@store');
+//update
+Route::put('/powerups/{id}', 'PowerupController@update');
+//delete
+Route::delete('/powerups/{id}', 'PowerupController@destroy');
+/************************************************/
+/******************** countries ********************/
+// get all
+Route::get('/countries', 'CountryController@index');
+//get by id
+Route::get('/countries/{id}', 'CountryController@show');
+//create
+Route::post('/countries', 'CountryController@store');
+//update
+Route::put('/countries/{id}', 'CountryController@update');
+//delete
+Route::delete('/countries/{id}', 'CountryController@destroy');
+/************************************************/
+/******************** cities ********************/
+// get all
+Route::get('/cities', 'CityController@index');
+//get by id
+Route::get('/cities/{id}', 'CityController@show');
+//create
+Route::post('/cities', 'CityController@store');
+//update
+Route::put('/cities/{id}', 'CityController@update');
+//delete
+Route::delete('/cities/{id}', 'CityController@destroy');
+/************************************************/
