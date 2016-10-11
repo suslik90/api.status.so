@@ -8,5 +8,5 @@ class Reward extends Model
 {
     protected $table = 'rewards';
     public $timestamps = false;
-    //
+
 }

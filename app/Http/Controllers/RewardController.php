@@ -132,4 +132,5 @@ class RewardController extends Controller
 
         return $result;
     }
+
 }

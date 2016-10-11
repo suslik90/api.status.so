@@ -37,6 +37,8 @@ Route::post('/users', 'UserController@store');
 Route::put('/users/{id}', 'UserController@update');
 //delete
 Route::delete('/users/{id}', 'UserController@destroy');
+//users rewards
+Route::get('/users/{id}/rewards', 'UserController@rewardsByUserId');
 /************************************************/
 /******************** companies ********************/
 // get all

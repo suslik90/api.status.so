@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://api.status.su'),
+    'url' => env('APP_URL', 'http://api.status.so'),
 
     /*
     |--------------------------------------------------------------------------
@@ -155,6 +155,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+//        Jlapp\Swaggervel\SwaggervelServiceProvider::class,
 
     ],
 

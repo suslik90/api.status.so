@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests;
+use DB;
 
 class UserController extends Controller
 {
@@ -127,4 +128,23 @@ class UserController extends Controller
 
         return $result;
     }
+
+    public function rewardsByUserId($id)
+    {
+        $start = microtime(true);
+        $userRewards = DB::table('users')
+            ->join('user_rewards', 'users.id', '=', 'user_rewards.user_id')
+            ->join('rewards', 'rewards.id', '=', 'user_rewards.reward_id')
+            ->where('users.id','=',$id)->select('rewards.photo_url','users.cheque_avg')
+            ->get();
+
+        $time = microtime(true)-$start;
+
+        $result=[];
+        $result['result']=$userRewards;
+        $result['exec_time']=$time;
+//dd($result);
+        return $result;
+    }
+
 }

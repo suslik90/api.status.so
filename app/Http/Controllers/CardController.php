@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Swagger\Annotations as SWG;
 use Illuminate\Http\Request;
 use App\Models\Card;
 use App\Http\Requests;
+
 
 class CardController extends Controller
 {
