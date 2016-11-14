@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/requests', 'RequestController@index');
 /******************** reward ********************/
 // get all
 Route::get('/rewards', 'RewardController@index');
@@ -39,6 +41,10 @@ Route::put('/users/{id}', 'UserController@update');
 Route::delete('/users/{id}', 'UserController@destroy');
 //users rewards
 Route::get('/users/{id}/rewards', 'UserController@rewardsByUserId');
+//users settings
+Route::get('/users/{id}/settings', 'UserController@settingsByUserId');
+//users offers
+Route::get('/users/{id}/offers', 'UserController@offersByUserId');
 /************************************************/
 /******************** companies ********************/
 // get all
