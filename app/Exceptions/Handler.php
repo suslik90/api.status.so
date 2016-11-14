@@ -7,6 +7,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Psy\Exception\ErrorException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -53,6 +54,11 @@ class Handler extends ExceptionHandler
             return $result;
         }
         if ($e instanceof QueryException) {
+            $result['error'] = $e->getCode();
+            $result['errorMessage'] = 'Query fail';
+            return $result;
+        }
+        if ($e instanceof Exception) {
             $result['error'] = $e->getCode();
             $result['errorMessage'] = 'Query fail';
             return $result;
