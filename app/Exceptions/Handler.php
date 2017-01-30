@@ -55,12 +55,14 @@ class Handler extends ExceptionHandler
         }
         if ($e instanceof QueryException) {
             $result['error'] = $e->getCode();
-            $result['errorMessage'] = 'Query fail';
+            $result['errorMessage'] = 'Query fail ( Query Exception )';
+            $result['errorMessageText'] = $e->getMessage();
             return $result;
         }
         if ($e instanceof Exception) {
             $result['error'] = $e->getCode();
-            $result['errorMessage'] = 'Query fail';
+            $result['errorMessage'] = 'Query fail ( Exception )';
+            $result['errorMessageText'] = $e->getMessage();
             return $result;
         }
         return parent::render($request, $e);

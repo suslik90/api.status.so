@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reward;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests;
@@ -144,6 +145,47 @@ class UserController extends Controller
         $result['result']=$userRewards;
         $result['exec_time']=$time;
 //dd($result);
+        return $result;
+    }
+
+    public function settingsByUserId($id)
+    {
+        $responseFields = ['surname','firstname','secondname','birthday_date','interests','countries.name as country','cities.name as city'];
+        $start = microtime(true);
+        $userRewards = DB::table('users')
+            ->join('user_settings', 'users.id', '=', 'user_settings.user_id')
+            ->join('cities', 'users.city_id', '=', 'cities.id')
+            ->join('countries', 'users.country_id', '=', 'countries.id')
+            ->where('users.id','=',$id)
+            ->select($responseFields)
+            ->get();
+
+        $time = microtime(true)-$start;
+
+        $result=[];
+        $result['result']=$userRewards;
+        $result['exec_time']=$time;
+        return $result;
+    }
+
+    public function offersByUserId($id)
+    {
+        $responseFields = ['surname','firstname','secondname','birthday_date','interests','countries.name as country','cities.name as city'];
+        $start = microtime(true);
+        $rewards = Reward::all();
+//        $userRewards = DB::table('users')
+//            ->join('user_settings', 'users.id', '=', 'user_settings.user_id')
+//            ->join('cities', 'users.city_id', '=', 'cities.id')
+//            ->join('countries', 'users.country_id', '=', 'countries.id')
+//            ->where('users.id','=',$id)
+//            ->select($responseFields)
+//            ->get();
+
+        $time = microtime(true)-$start;
+
+        $result=[];
+        $result['result']=$rewards;
+        $result['exec_time']=$time;
         return $result;
     }
 

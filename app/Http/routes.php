@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('/requests', 'RequestController@index');
+Route::post('/upload', 'RequestController@upload');
+Route::get('/images', 'RequestController@showUpload');
+
+Route::get('/to_db/{table}', 'RequestController@dbQuery');
 /******************** reward ********************/
 // get all
 Route::get('/rewards', 'RewardController@index');
